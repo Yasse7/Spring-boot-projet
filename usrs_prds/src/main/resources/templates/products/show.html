@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Spring eCommerce</title>
+
+
+  <!-- Bootstrap core CSS -->
+  <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+  <div th:include="manager/admin_template.html::header"></div>
+
+
+<div class="container">
+
+
+
+  <h1 class="mt-4 mb-3">
+    WhoShop<small>Products</small>
+  </h1>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a th:href="@{/manager}">Home</a></li>
+    <li class="breadcrumb-item active">Products</li>
+  </ol>
+
+  <a class="btn btn-primary" th:href="@{/products/create}" >Create Product</a>
+  <h2>Products</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Creation</th>
+        <th scope="col">Price</th>
+        <th scope="col">Action</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="product:${productos}">
+        <td th:text="${product.nameProduct}"></td>
+        <td th:text="${product.description}" ></td>
+        <td th:text="${product.quantity}"></td>
+        <td th:text="${product.price}"></td>
+        <td><a  class="btn btn-warning" th:href="@{products/edit/{id}(id=${product.id})}">EDITE</a> </td>
+        <td><a  class="btn btn-danger" data-toggle="modal"th:data-target="'#modal-'+${product.id}">DELETE</a>
+          <!-- Modal -->
+          <div class="modal fade"  th:id="'modal-'+${product.id}" tabindex="-1" role="dialog" aria-labelledby="miModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="miModalLabel" th:text="'Producto: '+${product.nameProduct}"></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <h4>Are you sure you want to delete it?</h4>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  <a type="button" class="btn btn-primary" th:href="@{products/delete}+'/'+${product.id}">Accept</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+
+      </tr>       
+    </tbody>
+  </table>
+
+
+</div>
+
+
+<!--   <div th:include="manager/admin_template.html::footer"></div>  -->
+
+
+
+  <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+  <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+
+</body>
+
+</html>

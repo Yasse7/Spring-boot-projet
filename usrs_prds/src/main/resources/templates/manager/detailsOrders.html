@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>datails</title>
+
+
+ >
+  <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+  <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div th:include="manager/admin_template.html::header"></div>
+
+
+    <div class="container">
+
+
+
+      <h1 class="mt-4 mb-3">
+        Spring <small>command Details </small>
+      </h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/manager}">Home</a></li>
+        <li class="breadcrumb-item"><a th:href="@{/manager/orders}">Orders</a></li>
+        <li class="breadcrumb-item active">Details</li>
+      </ol>
+
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <div class="row">
+           <div class="col-lg-12">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">quantité</th>
+                  <th scope="col">Products</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Total</th>                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="detail:${details}">
+                  <td th:text="${#numbers.formatInteger(detail.quantityOrder,'#0')}"></td>
+                  <td th:text="${detail.nameOrder}"></td>
+                  <td th:text="${detail.priceOrder}"></td>
+                  <td th:text="${detail.totalOrder}"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!--<div th:include="manager/admin_template.html::footer"></div>-->
+
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>
+

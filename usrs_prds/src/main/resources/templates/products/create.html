@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Spring eCommerce</title>
+
+
+
+  <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+
+  <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div th:include="manager/admin_template.html::header"></div>
+
+<div class="container">
+
+
+
+  <h1 class="mt-4 mb-3">
+    Spring eCommerce <small>produts</small>
+  </h1>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item active">create product</li>
+  </ol>
+
+  <h2>Create Product</h2>
+  <form class="form-horizontal" th:action="@{/products/save}" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="nombre" >quantité:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="nombre" name="nameProduct"
+        placeholder="Enter the name of the product" autocomplete="off" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="descripcion">Description:</label>
+      <div class="col-sm-10">
+        <textarea class="form-control" id="descripcion" name="description"
+        placeholder="Enter the product description" required
+        autocomplete="off"> </textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="cantidad">Amount:</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="cantidad"
+        name="quantity" placeholder="Enter the quantity of the product"
+        required autocomplete="off">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="precio">Price:</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" step="any" id="precio" name="price"
+        placeholder="Enter the price of the product" autocomplete="off" required>
+      </div>
+    </div>
+    <!--  <div class="form-group">
+      <label class="control-label col-sm-2" for="img">Image:</label>
+      <div class="col-sm-10">
+        <input type="file" class="form-control-file" id="img" name="img">
+      </div>
+    </div>
+-->
+
+    <div class="row">
+      <div class="col-sm-2">
+        <button type="submit" class="btn btn-success">
+          <span class="glyphicon glyphicon-saved"></span> Save
+        </button>
+      </div>
+      <div class="col-sm-2">
+        <button type="submit" class="btn btn-danger pull-right">
+          <span class="glyphicon glyphicon-saved"></span> Cancel
+        </button>
+      </div>
+    </div>
+
+
+  </form>
+
+</div>
+
+
+
+
+
+
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>

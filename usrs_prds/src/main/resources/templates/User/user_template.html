@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{css/heroic-features.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<div th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" th:href="@{/}">Spring eCommerce</a>
+
+            <form class="form-inline my-2 my-lg-0" method="post"
+                  th:action="@{/search}">
+                <input class="form-control mr-sm-2" type="search"
+                       placeholder="chercher" aria-label="Search" name="nombre"
+                       autocomplete="off">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">chercher</button>
+            </form>
+
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link"
+                                            th:href="@{/getCart}">panier</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                                            th:href="@{/user/login}">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Navigation -->
+<div th:fragment="headerUser">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" th:href="@{/}">Gestion des users et produit Avec Spring boot</a>
+
+            <form class="form-inline my-2 my-lg-0" method="post"
+                  th:action="@{/search}">
+                <input class="form-control mr-sm-2" type="search"
+                       placeholder="" aria-label="Search" name="nombre"
+                       autocomplete="off">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Chercher</button>
+            </form>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive1"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">User</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/getCart}">Panier</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/user/compras}">Shopping</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" th:href="@{/user/logout}" title="Cerrar sesión"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                    </svg></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+
+
+<!-- Footer -->
+<div th:fragment="footer">
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white"></p>
+        </div>
+        <!-- /.container -->
+    </footer>
+</div>
+
+
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>
