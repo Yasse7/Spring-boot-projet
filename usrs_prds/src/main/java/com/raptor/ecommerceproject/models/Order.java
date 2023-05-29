@@ -52,33 +52,25 @@ public class Order {
         this.numberOrder = numberOrder;
     }
 
-    public Date getDateCreation() {
-        return dateCreation;
-    }
+
 
     public void setDateCreation(Date dateCreation) {
         this.dateCreation = dateCreation;
     }
 
-    public Date getDateReceived() {
-        return dateReceived;
-    }
+
 
     public void setDateReceived(Date dateReceived) {
         this.dateReceived = dateReceived;
     }
 
-    public double getTotal() {
-        return total;
-    }
+
 
     public void setTotal(double total) {
         this.total = total;
     }
 
-    public User getUserOrder() {
-        return userOrder;
-    }
+
 
     public void setUserOrder(User userOrder) {
         this.userOrder = userOrder;

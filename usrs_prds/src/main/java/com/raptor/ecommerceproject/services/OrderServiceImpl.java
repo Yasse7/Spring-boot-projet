@@ -25,7 +25,7 @@ public class OrderServiceImpl implements IOrderService{
     public Order save(Order order) {
         return orderRepository.save(order);
     }
-        //formato de la orden 000001
+
     public String generateNumberOrder(){
         int number=0;
         String numberConcatenated="";

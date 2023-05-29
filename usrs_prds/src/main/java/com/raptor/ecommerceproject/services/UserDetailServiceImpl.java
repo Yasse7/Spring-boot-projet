@@ -28,10 +28,10 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        log.info("Este es el username: ",username);
+        log.info("username: ",username);
         Optional<User> optionalUser = userService.findByMail(username);
         if (optionalUser.isPresent()) {
-            log.info("Esto es el id del usuario: ",optionalUser.get().getId());
+            log.info("userid: ",optionalUser.get().getId());
             session.setAttribute("idUser", optionalUser.get().getId());
             User user = optionalUser.get();
             return org.springframework.security.core.userdetails.User.builder()
@@ -39,7 +39,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
                     password(user.getPassword())
                     .roles(user.getTypeUser()).build();
         } else {
-            throw new UsernameNotFoundException("Usuario no encontrado");
+            throw new UsernameNotFoundException("user not found");
         }
     }
 }
